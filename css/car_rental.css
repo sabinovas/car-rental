@@ -1,62 +1,71 @@
 @import url(â€˜https://fonts.googleapis.com/css?family=Poppinsâ€™);
 
-*{
+* {
     font-family: 'poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    
-}  
-p{
+
+}
+
+p {
     font-weight: 300;
     color: #111;
 }
-body{
+
+body {
     min-height: 1000px;
 }
-.banner{
+
+.banner {
     position: relative;
     width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(images/carbg.jpg);
+    background: url(../images/carbg.jpg);
     background-size: cover;
 }
-.banner .content{
+
+.banner .content {
     max-width: 1100px;
     text-align: center;
 }
-.banner .content h2{
+
+.banner .content h2 {
     font-size: 2em;
     font-style: oblique;
     color: #fff;
     margin-top: 1px;
 }
-.banner .content p{
+
+.banner .content p {
     font-size: 1em;
     font-style: italic;
     color: #fff;
     margin-top: 5px;
 }
-.btn{
+
+.btn {
     font-size: 1em;
     color: #fff;
     background: #ff0157;
     display: inline-block;
-    padding: 10px 30px ;
+    padding: 10px 30px;
     margin-top: 20px;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 2px;
     transition: 0.5s;
 }
-.btn:hover{
+
+.btn:hover {
     letter-spacing: 6px;
 }
-header{
+
+header {
     position: fixed;
     top: 0;
     left: 0;
@@ -68,72 +77,88 @@ header{
     align-items: center;
     transition: 0.5s;
 }
-header.sticky{
+
+header.sticky {
     background: #fff;
     padding: 10px 100px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
-header .logo{
+
+header .logo {
     color: #fff;
     font-weight: 700;
     font-size: 2em;
     text-decoration: none;
 }
-header.sticky .logo{
+
+header.sticky .logo {
     color: #111;
 }
-header .logo span{
+
+header .logo span {
     color: #ff0157;
 }
-header .navigation{
+
+header .navigation {
     position: relative;
     display: flex;
 }
-header .navigation li{
+
+header .navigation li {
     list-style: none;
     margin-left: 30px;
 }
-header .navigation li a{
+
+header .navigation li a {
     text-decoration: none;
     color: #fff;
     font-weight: 300;
 }
-header.sticky .navigation li a{
+
+header.sticky .navigation li a {
     color: #111;
 }
-header .navigation li a:hover{
+
+header .navigation li a:hover {
     color: #ff0157;
 }
-section{
+
+section {
     padding: 100px;
 }
-.row{
+
+.row {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
-.row .col50{
+
+.row .col50 {
     position: relative;
     width: 48%;
 }
-.title-text{
+
+.title-text {
     color: #111;
     font-size: 2em;
     font-weight: 300;
 }
-.title-text span{
+
+.title-text span {
     color: #ff0157;
     font-weight: 700;
     font-size: 1.5em;
 }
-.row .col50 .imgBx{
+
+.row .col50 .imgBx {
     position: relative;
     width: 100%;
     /* min-height: 300px; */
     height: 100%;
 }
-.row .col50 .imgBx img{
+
+.row .col50 .imgBx img {
     position: absolute;
     top: 0;
     left: 0;
@@ -141,32 +166,37 @@ section{
     height: 100%;
     object-fit: cover;
 }
-.title{
+
+.title {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.menu .content{
+
+.menu .content {
     display: flex;
     justify-content: center;
     flex-direction: row-reverse;
     flex-wrap: wrap;
     margin-top: 40px;
 }
-.menu .content .box{
+
+.menu .content .box {
     width: 340px;
     margin: 20px;
     border: 15px solid #fff;
     box-shadow: 0 5px 35px rgba(0, 0, 0, 0.08);
 }
-.menu .content .box .imgBx{
+
+.menu .content .box .imgBx {
     position: relative;
     width: 100%;
     height: 300px;
 }
-.menu .content .box .imgBx img{
+
+.menu .content .box .imgBx img {
     position: absolute;
     top: 0;
     left: 0;
@@ -174,30 +204,36 @@ section{
     height: 100%;
     object-fit: cover;
 }
-.menu .content .box .text{
+
+.menu .content .box .text {
     padding: 15px 0 5px;
 }
-.menu .content .box .text h3{
+
+.menu .content .box .text h3 {
     font-weight: 400;
     color: #111;
 }
-.expert .content{
+
+.expert .content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
     margin-top: 40px;
 }
-.expert .content .box{
+
+.expert .content .box {
     width: 250px;
     margin: 15px;
 }
-.expert .content .box .imgBx{
+
+.expert .content .box .imgBx {
     position: relative;
     width: 100%;
     height: 300px;
 }
-.expert .content .box .imgBx img{
+
+.expert .content .box .imgBx img {
     position: absolute;
     top: 0;
     left: 0;
@@ -205,29 +241,35 @@ section{
     height: 100%;
     object-fit: cover;
 }
-.expert .content .box .text{
+
+.expert .content .box .text {
     padding: 15px 0 5px;
 }
-.expert .content .box .text h3{
+
+.expert .content .box .text h3 {
     font-weight: 400;
     color: #111;
 }
-.testimonials{
-    background: url(images/carbg2-copy.jpg);
+
+.testimonials {
+    background: url(../images/carbg2-copy.jpg);
     background-size: cover;
 }
+
 .white .title-text,
-.white p{
+.white p {
     color: #fff;
 }
-.testimonials .content{
+
+.testimonials .content {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
     margin-top: 40px;
 }
-.testimonials .content .box{
+
+.testimonials .content .box {
     width: 340px;
     margin: 20px;
     padding: 40px;
@@ -237,7 +279,8 @@ section{
     align-items: center;
     flex-direction: column;
 }
-.testimonials .content .box .imgBx{
+
+.testimonials .content .box .imgBx {
     position: relative;
     width: 80px;
     height: 80px;
@@ -245,7 +288,8 @@ section{
     border-radius: 50%;
     overflow: hidden;
 }
-.testimonials .content .box .imgBx img{
+
+.testimonials .content .box .imgBx img {
     position: absolute;
     top: 0;
     left: 0;
@@ -253,47 +297,56 @@ section{
     height: 100%;
     object-fit: cover;
 }
-.testimonials .content .box .text{
+
+.testimonials .content .box .text {
     text-align: center;
 }
-.testimonials .content .box .text p{
+
+.testimonials .content .box .text p {
     color: #666;
     font-style: italic;
 }
-.testimonials .content .box .text h3{
+
+.testimonials .content .box .text h3 {
     margin-top: 20px;
     color: #111;
     font-size: 1em;
     color: #ff0157;
     font-weight: 600;
 }
-.contact{
-    background: url(images/carbg4.jpg);
+
+.contact {
+    background: url(../images/carbg4.jpg);
     background-size: cover;
 }
-.contact .title-text{
+
+.contact .title-text {
     color: #fff;
 }
-.contact-form{
+
+.contact-form {
     padding: 75px 50px;
     background: #fff;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     margin-top: 50px;
 }
-.contact-form h3{
+
+.contact-form h3 {
     color: #111;
     font-size: 1.2em;
     margin-bottom: 20px;
     font-weight: 500;
 }
-.contact-form .input-box{
+
+.contact-form .input-box {
     position: relative;
     width: 100%;
     margin-bottom: 20px;
 }
+
 .contact-form .input-box input,
-.contact-form .input-box textarea{
+.contact-form .input-box textarea {
     width: 100%;
     border: 1px solid #555;
     padding: 10px;
@@ -303,7 +356,8 @@ section{
     font-weight: 300;
     resize: none;
 }
-.contact-form .input-box input[type="submit"]{
+
+.contact-form .input-box input[type="submit"] {
     font-size: 1em;
     color: #fff;
     background: #ff0157;
@@ -317,29 +371,35 @@ section{
     border: none;
     cursor: pointer;
 }
-.copyright-text{
+
+.copyright-text {
     padding: 8px 40px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-.copyright-text p{
+
+.copyright-text p {
     color: #333;
 }
-.copyright-text a{
+
+.copyright-text a {
     color: #ff0157;
     font-weight: 500;
     text-decoration: none;
 }
-@media (max-width: 991px)
-{
+
+@media (max-width: 991px) {
+
     header,
-    header.sticky{
+    header.sticky {
         padding: 10px 20px;
     }
-    header .navigation{
+
+    header .navigation {
         display: none;
     }
-    header .navigation.active{
+
+    header .navigation.active {
         width: 100%;
         height: calc(100% - 68px);
         position: fixed;
@@ -351,80 +411,98 @@ section{
         flex-direction: column;
         background: #fff;
     }
-    header .navigation li{
+
+    header .navigation li {
         margin-left: 0;
     }
-    header .navigation li a{
+
+    header .navigation li a {
         color: #111;
         font-size: 1.6em;
     }
-    .menutoggle{
+
+    .menutoggle {
         position: relative;
         width: 40px;
         height: 40px;
-        background: url(images/menu.png);
+        background: url(../images/menu.png);
         background-size: 30px;
         background-repeat: no-repeat;
         background-position: center;
         cursor: pointer;
     }
-    .menutoggle.active{
-        background: url(images/close.png);
+
+    .menutoggle.active {
+        background: url(../images/close.png);
         background-size: 25px;
         background-repeat: no-repeat;
         background-position: center;
     }
-    header.sticky .menutoggle{
+
+    header.sticky .menutoggle {
         filter: invert(1);
     }
+
     section {
         padding: 20px;
     }
-    .banner .content h2{
+
+    .banner .content h2 {
         font-size: 3em;
         color: #fff;
     }
-    .row{
+
+    .row {
         flex-direction: column;
     }
-    .row .col50{
+
+    .row .col50 {
         position: relative;
         width: 100%;
     }
-    .row .col50 .imgBx{
+
+    .row .col50 .imgBx {
         height: 300px;
         margin-top: 20px;
     }
-    .menu .content{
+
+    .menu .content {
         margin-top: 20px;
     }
-    .menu .content .box{
+
+    .menu .content .box {
         margin: 10px;
     }
-    .menu .content .box .imgBx{
+
+    .menu .content .box .imgBx {
         height: 260px;
     }
-    .title{
+
+    .title {
         text-align: center;
     }
-    .title-text{
+
+    .title-text {
         font-size: 1.8em;
         line-height: 1.5em;
         margin-bottom: 15px;
         font-weight: 300;
     }
-    .testimonials .content .box{
+
+    .testimonials .content .box {
         margin: 10px;
         padding: 20px;
     }
-    .contact-form{
+
+    .contact-form {
         padding: 35px 40px;
         margin-top: 20px;
         margin-bottom: 30px;
     }
 }
-@media (max-width: 480px){
-    .banner .content h2{
+
+@media (max-width: 480px) {
+    .banner .content h2 {
         font-size: 2.2em;
         color: #fff;
     }
