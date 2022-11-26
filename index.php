@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+session_start(); 
+require 'connection.php';
+$conn = Connect();
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Rental.</title>
-    <link rel="stylesheet" href="car_rental.css">
+    <link rel="stylesheet" href="./css/car_rental.css">
 </head>
 <body>
-    <header>
+<header>
         <a href="#" class="logo">Car Rental<span>.</span></a>
         <div class="menutoggle" onclick="togglemenu();"></div>
-        <ul class="navigation">
+        <?php
+                if(isset($_SESSION['login_client'])){
+            ?> 
+                 <ul class="navigation">
             <li><a href="#banner" onclick="togglemenu();">Home</a></li>
             <li><a href="#about" onclick="togglemenu();">About</a></li>
             <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
@@ -19,6 +27,33 @@
             <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
             <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
         </ul>
+            <?php
+                }
+                else if (isset($_SESSION['login_customer'])){
+            ?>
+                <ul class="navigation">
+            <li><a href="#banner" onclick="togglemenu();">Home</a></li>
+            <li><a href="#about" onclick="togglemenu();">About</a></li>
+            <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
+            <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+            <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+            <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
+        </ul>
+            <?php
+            }
+                else {
+            ?>
+                <ul class="navigation">
+            <li><a href="#banner" onclick="togglemenu();">Home</a></li>
+            <li><a href="#about" onclick="togglemenu();">Employee</a></li>
+            <li><a href="customerlogin.php" onclick="togglemenu();">Customer</a></li>
+            <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+            <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+            <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
+        </ul>
+            
+                <?php   }
+                ?>
     </header>
     <section class="banner" id="banner">
         <div class="content">
@@ -114,7 +149,7 @@
             </div>
         </div>
         <div class="title">
-            <a href="booking.html" class="btn">Book Now</a>
+            <a href="booking.php" class="btn">Book Now</a>
         </div>
     </section>
         
@@ -226,5 +261,5 @@
     <div class="copyright-text">
         <p>copyright 2021 <a href="#">Pratik Kamat</a>. All right Reserved</p>
     </div>
-    <script src="car_rental.js"></script>
+    <script src="./js/car_rental.js"></script>
 </body>
