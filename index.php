@@ -25,7 +25,10 @@ $conn = Connect();
             <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
             <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
             <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
             <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
+            <li><a href="login.php">login</a></li>
         </ul>
             <?php
                 }
@@ -37,6 +40,8 @@ $conn = Connect();
             <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
             <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
             <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+            <li><a href="profile.php" onclick="togglemenu();">Profile</a></li>
+            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
         </ul>
             <?php
@@ -45,8 +50,8 @@ $conn = Connect();
             ?>
                 <ul class="navigation">
             <li><a href="#banner" onclick="togglemenu();">Home</a></li>
-            <li><a href="#about" onclick="togglemenu();">Employee</a></li>
-            <li><a href="customerlogin.php" onclick="togglemenu();">Customer</a></li>
+            <li><a href="loginSupplier.php" onclick="togglemenu();">Supplier</a></li>
+            <li><a href="loginCustomer.php" onclick="togglemenu();">Customer</a></li>
             <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
             <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
             <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
@@ -93,65 +98,42 @@ $conn = Connect();
         </div>
     </section>
 
-    <section class="menu" id="menu" style="background-color: rgba(233, 213, 213, 0.819);">
-        <div class="title">
-            <h2 class="title-text">Our <span>C</span>ars</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div class="content">
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/cars1.jpg">
-                </div>
-                <div class="text">
-                    <h3>Special Salads</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/cars2.jpg">
-                </div>
-                <div class="text">
-                    <h3>Special Soup</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/cars3.jpg">
-                </div>
-                <div class="text">
-                    <h3>Special Pasta</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/cars4.jpg">
-                </div>
-                <div class="text">
-                    <h3>Special Salads</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/cars5.jpg">
-                </div>
-                <div class="text">
-                    <h3>Special Soup</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/cars6.jpg">
-                </div>
-                <div class="text">
-                    <h3>Special Pasta</h3>
-                </div>
-            </div>
-        </div>
-        <div class="title">
-            <a href="booking.php" class="btn">Book Now</a>
-        </div>
-    </section>
+    <section class="menu-content">
+            <?php   
+            $sql1 = "SELECT * FROM cars WHERE car_availability='yes'";
+            $result1 = mysqli_query($conn,$sql1);
+
+            if(mysqli_num_rows($result1) > 0) {
+                while($row1 = mysqli_fetch_assoc($result1)){
+                    $car_id = $row1["car_id"];
+                    $car_name = $row1["car_name"];
+                    $ac_price = $row1["ac_price"];
+                    $ac_price_per_day = $row1["ac_price_per_day"];
+                    $non_ac_price = $row1["non_ac_price"];
+                    $non_ac_price_per_day = $row1["non_ac_price_per_day"];
+                    $car_img = $row1["car_img"];
+               
+                    ?>
+            <a href="booking.php?id=<?php echo($car_id) ?>">
+            <div class="sub-menu">
+            
+
+            <img class="card-img-top" src="<?php echo $car_img; ?>" alt="Card image cap">
+            <h5><b> <?php echo $car_name; ?> </b></h5>
+            <h6> AC Fare: <?php echo ("Rs. " . $ac_price . "/km & Rs." . $ac_price_per_day . "/day"); ?></h6>
+            <h6> Non-AC Fare: <?php echo ("Rs. " . $non_ac_price . "/km & Rs." . $non_ac_price_per_day . "/day"); ?></h6>
+
+            
+            </div> 
+            </a>
+            <?php }}
+            else {
+                ?>
+<h1> No cars available :( </h1>
+                <?php
+            }
+            ?>                                   
+        </section>
         
     <section class="expert" id="expert">
         <div class="title">
