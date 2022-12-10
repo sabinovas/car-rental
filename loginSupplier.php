@@ -1,7 +1,7 @@
 <?php
-include('login_customer.php'); // Includes Login Script
+include('login_supplier.php'); // Includes Login Script
 
-if(isset($_SESSION['login_customer'])){
+if(isset($_SESSION['login_supplier'])){
 header("location: index.php"); //Redirecting
 }
 ?>
@@ -19,18 +19,18 @@ header("location: index.php"); //Redirecting
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form role="form" action="customer_register.php" method="POST">
+				<form role="form" action="supplier_register.php" method="POST">
 					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="customer_name" placeholder="User name" required="">
-					<input type="email" name="customer_email" placeholder="Email" required="">
+					<input type="text" name="supplier_name" placeholder="user name" required="">
+					<input type="email" name="supplier_email" placeholder="Email" required="">
 					<input type="password" name="password" placeholder="Password" required="">
-					<input type="number" name="customer_phone" placeholder="phone no:" required="">
+					<input type="number" name="supplier_phone" placeholder="phone no:" required="">
 					<button type="submit">Sign up</button>
 				</form>
 			</div>
 
 			<div class="login">
-				<form role="form" action="login_customer.php" method="POST">
+				<form role="form" action="login_supplier.php" method="POST">
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="password" placeholder="Password" required="">

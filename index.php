@@ -17,18 +17,19 @@ $conn = Connect();
         <a href="#" class="logo">Car Rental<span>.</span></a>
         <div class="menutoggle" onclick="togglemenu();"></div>
         <?php
-                if(isset($_SESSION['login_client'])){
+                if(isset($_SESSION['login_supplier'])){
             ?> 
                  <ul class="navigation">
             <li><a href="#banner" onclick="togglemenu();">Home</a></li>
             <li><a href="#about" onclick="togglemenu();">About</a></li>
-            <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
+            <li><a href="entercar.php" onclick="togglemenu();">Add car</a></li>
             <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
             <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+            <li><a href="profile_supplier.php" onclick="togglemenu();">Profile</a></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
             <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
-            <li><a href="login.php">login</a></li>
+            
         </ul>
             <?php
                 }
@@ -40,7 +41,7 @@ $conn = Connect();
             <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
             <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
             <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
-            <li><a href="profile.php" onclick="togglemenu();">Profile</a></li>
+            <li><a href="profile_customer.php" onclick="togglemenu();">Profile</a></li>
             <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
         </ul>
@@ -98,30 +99,33 @@ $conn = Connect();
         </div>
     </section>
 
+    
+   
     <section class="menu-content">
-            <?php   
+    <?php
+             
             $sql1 = "SELECT * FROM cars WHERE car_availability='yes'";
             $result1 = mysqli_query($conn,$sql1);
 
             if(mysqli_num_rows($result1) > 0) {
                 while($row1 = mysqli_fetch_assoc($result1)){
-                    $car_id = $row1["car_id"];
-                    $car_name = $row1["car_name"];
-                    $ac_price = $row1["ac_price"];
-                    $ac_price_per_day = $row1["ac_price_per_day"];
-                    $non_ac_price = $row1["non_ac_price"];
-                    $non_ac_price_per_day = $row1["non_ac_price_per_day"];
+                    
+                    $car_no = $row1["car_no"];
+                    $car_model=$row1["car_model"];
+                    $car_type = $row1["car_type"];
+                    $car_color = $row1["car_color"];
+                    $car_price = $row1["car_price"];
                     $car_img = $row1["car_img"];
-               
+
                     ?>
-            <a href="booking.php?id=<?php echo($car_id) ?>">
+            <a href="booking.php?id=<?php echo($car_no) ?>">
             <div class="sub-menu">
             
 
             <img class="card-img-top" src="<?php echo $car_img; ?>" alt="Card image cap">
-            <h5><b> <?php echo $car_name; ?> </b></h5>
-            <h6> AC Fare: <?php echo ("Rs. " . $ac_price . "/km & Rs." . $ac_price_per_day . "/day"); ?></h6>
-            <h6> Non-AC Fare: <?php echo ("Rs. " . $non_ac_price . "/km & Rs." . $non_ac_price_per_day . "/day"); ?></h6>
+            <h5><b> <?php echo $car_model; ?> </b></h5>
+            <h6> Car Type: <?php echo ($car_type . "Car Model" . $car_model . ""); ?></h6>
+            <h6> Price: <?php echo ("Rs. " . $car_price . "/day."); ?></h6>
 
             
             </div> 
@@ -134,7 +138,8 @@ $conn = Connect();
             }
             ?>                                   
         </section>
-        
+         
+     
     <section class="expert" id="expert">
         <div class="title">
             <h2 class="title-text">Our Kitchen <span>E</span>xpert</h2>

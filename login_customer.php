@@ -30,7 +30,7 @@ if ($stmt->fetch())  //fetching the contents of the row
 	$_SESSION['login_customer']=$customer_email; // Initializing Session
 	header("location: index.php"); // Redirecting To Other Page
 } else {
-$error = "Username or Password is invalid";
+$error = "Email or Password is invalid";
 }
 mysqli_close($conn); // Closing Connection
 }

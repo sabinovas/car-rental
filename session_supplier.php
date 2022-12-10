@@ -6,11 +6,12 @@ $conn = Connect();
 session_start();// Starting Session
 
 // Storing Session
-$user_check=$_SESSION['login_client'];
+$user_check=$_SESSION['login_supplier'];
 
 // SQL Query To Fetch Complete Information Of User
-$query = "SELECT client_username FROM clients WHERE client_username = '$user_check'";
+$query = "SELECT supplier_name FROM supplier WHERE email = '" . $user_check . "'";
 $ses_sql = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($ses_sql);
-$login_session =$row['client_username'];
+
+$login_session = $row['supplier_name'];
 ?>

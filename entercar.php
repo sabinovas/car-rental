@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
- include('session_customer.php');
-if(!isset($_SESSION['login_customer'])){
-    session_destroy();
-    header("location: loginCustomer.php");
-}
-?> 
+include('session_supplier.php'); 
+?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Booking Car</title>
+	<title>Booking Form HTML Template</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet">
@@ -34,28 +30,12 @@ if(!isset($_SESSION['login_customer'])){
 </head>
 
 <body>
-<?php
-        $car_id = $_GET["id"];
-        $sql1 = "SELECT * FROM cars WHERE car_no = '$car_id'";
-        $result1 = mysqli_query($conn, $sql1);
-
-        if(mysqli_num_rows($result1)){
-            while($row1 = mysqli_fetch_assoc($result1)){
-				$car_no = $row1["car_no"];
-				$car_model=$row1["car_model"];
-				$car_type = $row1["car_type"];
-				$car_color = $row1["car_color"];
-				$car_price = $row1["car_price"];
-            }
-        }
-
-        ?>
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container">
 				<div class="row">
 					<div class="booking-form">
-						<form role="form" action="bookingConfirm.php" method="POST" >
+						<form role="form" action="entercar1.php" method="POST" >
 							<!-- <div class="form-group">
 								<div class="form-checkbox">
 									<label for="roundtrip">
@@ -75,63 +55,53 @@ if(!isset($_SESSION['login_customer'])){
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">selected car</span>
-										<input class="form-control" type="text" name="car_model" value="<?php echo $car_model ?>" required disabled>
+										<span class="form-label">Car Model</span>
+										<input class="form-control" type="text" name="car_model" placeholder="Enter car Model" required >
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Number plate</span>
-										<input class="form-control" type="text" name="car_no" value="<?php echo $car_no ?>" required>
+										<span class="form-label">Car Number</span>
+										<input class="form-control" type="number" name="car_no" placeholder="Enter car no" required>
 									</div>
 								</div>
 							</div>
 							<div class="row">
-								
 								<div class="col-md-6">
 									<div class="form-group">
-										<span class="form-label">Document for verification</span>
-										<select class="form-control" name="document">
-											<option>drivers License</option>
-											<option>Aadhar car</option>
-											<option>Pan card</option>
-										</select>
-										<span class="select-arrow"></span>
+										<span class="form-label">Type</span>
+										<input class="form-control" type="text" name="car_type" placeholder="Car type" required>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<span class="form-label">Car color</span>
+										<input class="form-control" type="text" name="car_color" placeholder="Car color" required>
+				
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-3">
 									<div class="form-group">
-										<span class="form-label">Issue</span>
-										<input class="form-control" type="date" name="rent_start_date" required>
+										
+										<input class="form-control" type="file" name="car_img" placeholder="Enter Car image" required>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
-										<span class="form-label">Returning</span>
-										<input class="form-control" type="date" name="rent_end_date" required>
+									
+										<input class="form-control" type="number" name="car_price" placeholder="Enter Car Price">
 									</div>
 								</div>
+							
 								
-								<div class="col-md-3">
-									<div class="form-group">
-										<span class="form-label">Mode Of Payment</span>
-										<select class="form-control" name="payment">
-											<option>Debit/Credit card</option>
-											<option>Net Banking</option>
-											<option>UPI</option>
-											<option>Cash</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
-							</div>
+					
 							<div class="row">
 								
 								<div class="col-md-3">
 									<div class="form-btn">
-										<button class="submit-btn">Book Now</button>
+										<button class="submit-btn" name="submit">Submit</button>
 									</div>
 								</div>
 							</div>
@@ -141,6 +111,6 @@ if(!isset($_SESSION['login_customer'])){
 			</div>
 		</div>
 	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>
