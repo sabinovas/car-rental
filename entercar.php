@@ -35,7 +35,7 @@ include('session_supplier.php');
 			<div class="container">
 				<div class="row">
 					<div class="booking-form">
-						<form role="form" action="entercar1.php" method="POST" >
+						<form role="form" action="entercar1.php" method="POST" enctype="multipart/form-data">
 							<!-- <div class="form-group">
 								<div class="form-checkbox">
 									<label for="roundtrip">

@@ -1,71 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
-session_start(); 
+<?php
+session_start();
 require 'connection.php';
 $conn = Connect();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Rental.</title>
     <link rel="stylesheet" href="./css/car_rental.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
+
 <body>
-<header>
+    <header>
         <a href="#" class="logo">Car Rental<span>.</span></a>
         <div class="menutoggle" onclick="togglemenu();"></div>
         <?php
-                if(isset($_SESSION['login_supplier'])){
-            ?> 
-                 <ul class="navigation">
-            <li><a href="#banner" onclick="togglemenu();">Home</a></li>
-            <li><a href="#about" onclick="togglemenu();">About</a></li>
-            <li><a href="entercar.php" onclick="togglemenu();">Add car</a></li>
-            <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
-            <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
-            <li><a href="profile_supplier.php" onclick="togglemenu();">Profile</a></li>
-            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        if (isset($_SESSION['login_supplier'])) {
+        ?>
+            <ul class="navigation">
+                <li><a href="#banner" onclick="togglemenu();">Home</a></li>
+                <li><a href="#about" onclick="togglemenu();">About</a></li>
+                <li><a href="entercar.php" onclick="togglemenu();">Add car</a></li>
+                <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+                <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+                <li><a href="profile_supplier.php" onclick="togglemenu();">Profile</a></li>
+                <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
-            <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
-            
-        </ul>
-            <?php
-                }
-                else if (isset($_SESSION['login_customer'])){
-            ?>
-                <ul class="navigation">
-            <li><a href="#banner" onclick="togglemenu();">Home</a></li>
-            <li><a href="#about" onclick="togglemenu();">About</a></li>
-            <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
-            <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
-            <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
-            <li><a href="profile_customer.php" onclick="togglemenu();">Profile</a></li>
-            <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-            <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
-        </ul>
-            <?php
-            }
-                else {
-            ?>
-                <ul class="navigation">
-            <li><a href="#banner" onclick="togglemenu();">Home</a></li>
-            <li><a href="loginSupplier.php" onclick="togglemenu();">Supplier</a></li>
-            <li><a href="loginCustomer.php" onclick="togglemenu();">Customer</a></li>
-            <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
-            <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
-            <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
-        </ul>
-            
-                <?php   }
-                ?>
+                <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
+
+            </ul>
+        <?php
+        } else if (isset($_SESSION['login_customer'])) {
+        ?>
+            <ul class="navigation">
+                <li><a href="#banner" onclick="togglemenu();">Home</a></li>
+                <li><a href="#about" onclick="togglemenu();">About</a></li>
+                <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
+                <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+                <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+                <li><a href="profile_customer.php" onclick="togglemenu();">Profile</a></li>
+                <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
+            </ul>
+        <?php
+        } else {
+        ?>
+            <ul class="navigation">
+                <li><a href="#banner" onclick="togglemenu();">Home</a></li>
+                <li><a href="loginSupplier.php" onclick="togglemenu();">Supplier</a></li>
+                <li><a href="loginCustomer.php" onclick="togglemenu();">Customer</a></li>
+                <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+                <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
+                <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
+            </ul>
+
+        <?php   }
+        ?>
     </header>
     <section class="banner" id="banner">
         <div class="content">
             <h2>Always Choose The Best</h2>
             <p>A true car enthusiast will always remember people not by their names but by the cars they drive</p>
-            <a href="#menu" class="btn" >Our Cars</a>     
+            <a href="#menu" class="btn">Our Cars</a>
         </div>
     </section>
 
@@ -74,22 +75,22 @@ $conn = Connect();
             <div class="col50">
                 <h2 class="title-text"><span>A</span>bout Us</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                     Corrupti ducimus doloribus accusamus! Ipsam enim aut dolorem 
-                     quaerat quae deleniti minus deserunt illo ea repellat non 
-                     possimus delectus, corrupti dolorum saepe! Lorem ipsum dolor, 
-                     sit amet consectetur adipisicing elit. Earum molestias suscipit
-                      magni placeat ratione quidem autem deserunt architecto fugit 
-                      quaerat totam, quisquam mollitia vero odit dignissimos sed 
-                      ipsa iste. Ipsum!<br><br><br>
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Eos perspiciatis dolores nam at maiores? Eligendi rem 
-                      voluptatum iste libero praesentium unde, ratione laudantium 
-                      delectus iusto! Numquam laboriosam aperiam saepe voluptate?
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Eos perspiciatis dolores nam at maiores? Eligendi rem 
-                      voluptatum iste libero praesentium unde, ratione laudantium 
-                      delectus iusto! Numquam laboriosam aperiam saepe voluptate?
-                    </p>
+                    Corrupti ducimus doloribus accusamus! Ipsam enim aut dolorem
+                    quaerat quae deleniti minus deserunt illo ea repellat non
+                    possimus delectus, corrupti dolorum saepe! Lorem ipsum dolor,
+                    sit amet consectetur adipisicing elit. Earum molestias suscipit
+                    magni placeat ratione quidem autem deserunt architecto fugit
+                    quaerat totam, quisquam mollitia vero odit dignissimos sed
+                    ipsa iste. Ipsum!<br><br><br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Eos perspiciatis dolores nam at maiores? Eligendi rem
+                    voluptatum iste libero praesentium unde, ratione laudantium
+                    delectus iusto! Numquam laboriosam aperiam saepe voluptate?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Eos perspiciatis dolores nam at maiores? Eligendi rem
+                    voluptatum iste libero praesentium unde, ratione laudantium
+                    delectus iusto! Numquam laboriosam aperiam saepe voluptate?
+                </p>
             </div>
             <div class="col50">
                 <div class="imgBx">
@@ -99,80 +100,51 @@ $conn = Connect();
         </div>
     </section>
 
-    
-   
+
+
     <section class="menu-content">
-    <?php
-             
-            $sql1 = "SELECT * FROM cars WHERE car_availability='yes'";
-            $result1 = mysqli_query($conn,$sql1);
+        <div class="d-flex row justify-content-between w-100">
+        <?php
 
-            if(mysqli_num_rows($result1) > 0) {
-                while($row1 = mysqli_fetch_assoc($result1)){
-                    
-                    $car_no = $row1["car_no"];
-                    $car_model=$row1["car_model"];
-                    $car_type = $row1["car_type"];
-                    $car_color = $row1["car_color"];
-                    $car_price = $row1["car_price"];
-                    $car_img = $row1["car_img"];
+        $sql1 = "SELECT * FROM cars WHERE car_availability='yes'";
+        $result1 = mysqli_query($conn, $sql1);
 
-                    ?>
-            <a href="booking.php?id=<?php echo($car_no) ?>">
-            <div class="sub-menu">
-            
+        if (mysqli_num_rows($result1) > 0) {
+            while ($row1 = mysqli_fetch_assoc($result1)) {
 
-            <img class="card-img-top" src="<?php echo $car_img; ?>" alt="Card image cap">
-            <h5><b> <?php echo $car_model; ?> </b></h5>
-            <h6> Car Type: <?php echo ($car_type . "Car Model" . $car_model . ""); ?></h6>
-            <h6> Price: <?php echo ("Rs. " . $car_price . "/day."); ?></h6>
+                $car_no = $row1["car_no"];
+                $car_model = $row1["car_model"];
+                $car_type = $row1["car_type"];
+                $car_color = $row1["car_color"];
+                $car_price = $row1["car_price"];
+                $car_img = $row1["car_img"];
 
-            
-            </div> 
-            </a>
-            <?php }}
-            else {
-                ?>
-<h1> No cars available :( </h1>
-                <?php
-            }
-            ?>                                   
-        </section>
-         
-     
-    <section class="expert" id="expert">
-        <div class="title">
-            <h2 class="title-text">Our Kitchen <span>E</span>xpert</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <div class="content">
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/person1.jpg">
+        ?>
+
+                <!-- <?php echo $car_img ?> -->
+                <div class="col-3">
+
+                    <a href="booking.php?id=<?php echo ($car_no) ?>">
+                        <div class="sub-menu">
+                            <img class="card-img-top" width="300" src="<?php echo $car_img; ?>" alt="Card image cap">
+                            <h5><b> <?php echo $car_model; ?> </b></h5>
+                            <h6> Car Type: <?php echo ($car_type . "Car Model" . $car_model . ""); ?></h6>
+                            <h6> Price: <?php echo ("Rs. " . $car_price . "/day."); ?></h6>
+                            
+                            
+                        </div>
+                    </a>
                 </div>
-                <div class="text">
-                    <h3>Someone Famous</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/person2.jpg">
-                </div>
-                <div class="text">
-                    <h3>Someone Famous</h3>
-                </div>
-            </div>
-            <div class="box">
-                <div class="imgBx">
-                    <img src="images/person3.jpg">
-                </div>
-                <div class="text">
-                    <h3>Someone Famous</h3>
-                </div>
-            </div>
-           
-        </div>
+                    <?php }
+        } else {
+            ?>
+            <h1> No cars available :( </h1>
+        <?php
+        }
+        ?>
+</div>
     </section>
+
 
     <section class="testimonials" id="testimonials">
         <div class="title white">
@@ -187,9 +159,9 @@ $conn = Connect();
                     </div>
                     <div class="text">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                             Hic eligendi fugiat nisi illum, nesciunt asperiores expedita?
-                              Laboriosam quae odio tempore rem amet odit voluptatem, 
-                              provident perferendis voluptate. Eveniet, autem quos?</p>
+                            Hic eligendi fugiat nisi illum, nesciunt asperiores expedita?
+                            Laboriosam quae odio tempore rem amet odit voluptatem,
+                            provident perferendis voluptate. Eveniet, autem quos?</p>
                         <h3>Someone Famous</h3>
                     </div>
                 </div>
@@ -199,9 +171,9 @@ $conn = Connect();
                     </div>
                     <div class="text">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                             Hic eligendi fugiat nisi illum, nesciunt asperiores expedita?
-                              Laboriosam quae odio tempore rem amet odit voluptatem, 
-                              provident perferendis voluptate. Eveniet, autem quos?</p>
+                            Hic eligendi fugiat nisi illum, nesciunt asperiores expedita?
+                            Laboriosam quae odio tempore rem amet odit voluptatem,
+                            provident perferendis voluptate. Eveniet, autem quos?</p>
                         <h3>Someone Famous</h3>
                     </div>
                 </div>
@@ -211,9 +183,9 @@ $conn = Connect();
                     </div>
                     <div class="text">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                             Hic eligendi fugiat nisi illum, nesciunt asperiores expedita?
-                              Laboriosam quae odio tempore rem amet odit voluptatem, 
-                              provident perferendis voluptate. Eveniet, autem quos?</p>
+                            Hic eligendi fugiat nisi illum, nesciunt asperiores expedita?
+                            Laboriosam quae odio tempore rem amet odit voluptatem,
+                            provident perferendis voluptate. Eveniet, autem quos?</p>
                         <h3>Someone Famous</h3>
                     </div>
                 </div>
