@@ -4,6 +4,8 @@
 session_start();
 require 'connection.php';
 $conn = Connect();
+
+
 ?>
 
 <head>
@@ -12,13 +14,17 @@ $conn = Connect();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Rental.</title>
     <link rel="stylesheet" href="./css/car_rental.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- CSS only -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
+
 </head>
 
 <body>
     <header>
         <a href="#" class="logo">Car Rental<span>.</span></a>
-        <div class="menutoggle" onclick="togglemenu();"></div>
+        <!-- <div class="menutoggle" onclick="togglemenu();"></div> -->
         <?php
         if (isset($_SESSION['login_supplier'])) {
         ?>
@@ -26,11 +32,10 @@ $conn = Connect();
                 <li><a href="#banner" onclick="togglemenu();">Home</a></li>
                 <li><a href="#about" onclick="togglemenu();">About</a></li>
                 <li><a href="entercar.php" onclick="togglemenu();">Add car</a></li>
-                <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+                
                 <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
                 <li><a href="profile_supplier.php" onclick="togglemenu();">Profile</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-
                 <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
 
             </ul>
@@ -41,7 +46,7 @@ $conn = Connect();
                 <li><a href="#banner" onclick="togglemenu();">Home</a></li>
                 <li><a href="#about" onclick="togglemenu();">About</a></li>
                 <li><a href="#menu" onclick="togglemenu();">Menu</a></li>
-                <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+                
                 <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
                 <li><a href="profile_customer.php" onclick="togglemenu();">Profile</a></li>
                 <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -54,7 +59,7 @@ $conn = Connect();
                 <li><a href="#banner" onclick="togglemenu();">Home</a></li>
                 <li><a href="loginSupplier.php" onclick="togglemenu();">Supplier</a></li>
                 <li><a href="loginCustomer.php" onclick="togglemenu();">Customer</a></li>
-                <li><a href="#expert" onclick="togglemenu();">Expert</a></li>
+                
                 <li><a href="#testimonials" onclick="togglemenu();">testimonials</a></li>
                 <li><a href="#contact" onclick="togglemenu();">Contact</a></li>
             </ul>
@@ -66,7 +71,7 @@ $conn = Connect();
         <div class="content">
             <h2>Always Choose The Best</h2>
             <p>A true car enthusiast will always remember people not by their names but by the cars they drive</p>
-            <a href="#menu" class="btn">Our Cars</a>
+            <a href="#menu-content" class="btn">Our Cars</a>
         </div>
     </section>
 
@@ -102,7 +107,7 @@ $conn = Connect();
 
 
 
-    <section class="menu-content">
+    <section class="menu-content" id="menu-content">
         <div class="d-flex row justify-content-between w-100">
         <?php
 

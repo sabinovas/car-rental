@@ -1,3 +1,5 @@
+
+
 <?php
 session_start(); // Starting Session
 $error=''; // Variable To Store Error Message
@@ -31,6 +33,9 @@ if ($stmt->fetch())  //fetching the contents of the row
 	header("location: index.php"); // Redirecting To Other Page
 } else {
 $error = "Email or Password is invalid";
+echo $error;
+
+	header("location: loginSupplier.php");
 }
 mysqli_close($conn); // Closing Connection
 }

@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <?php 
    
  include('session_customer.php');
@@ -37,7 +35,7 @@ if(!isset($_SESSION['login_customer'])){
     $rent_end_date = date('Y-m-d', strtotime($_POST['rent_end_date']));
    // $return_status = "NR"; // not returned
     //$fare = "NA";
-
+    
 
     function dateDiff($start, $end) {
         $start_ts = strtotime($start);

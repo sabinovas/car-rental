@@ -16,7 +16,7 @@ if (isset($_SESSION['login_customer'])) {
      $updatedDetails=$conn->query($query);
 
      if($updatedDetails==TRUE){
-        header("location: profile.php");
+        header("location: profile_customer.php");
     }
     }
 

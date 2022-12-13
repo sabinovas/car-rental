@@ -14,6 +14,7 @@ $success = $conn->query($query);
 if (!$success){
 	die("Couldnt enter data: ".$conn->error);
 }
+header("location: loginCustomer.php");
 
 $conn->close();
     

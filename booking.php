@@ -42,10 +42,12 @@ if(!isset($_SESSION['login_customer'])){
         if(mysqli_num_rows($result1)){
             while($row1 = mysqli_fetch_assoc($result1)){
 				$car_no = $row1["car_no"];
+		
 				$car_model=$row1["car_model"];
 				$car_type = $row1["car_type"];
 				$car_color = $row1["car_color"];
 				$car_price = $row1["car_price"];
+				
             }
         }
 
@@ -55,7 +57,7 @@ if(!isset($_SESSION['login_customer'])){
 			<div class="container">
 				<div class="row">
 					<div class="booking-form">
-						<form role="form" action="bookingConfirm.php" method="POST" >
+						<form role="form" action="bookingConfirm.php" method="POST"  >
 							<!-- <div class="form-group">
 								<div class="form-checkbox">
 									<label for="roundtrip">
@@ -76,13 +78,13 @@ if(!isset($_SESSION['login_customer'])){
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">selected car</span>
-										<input class="form-control" type="text" name="car_model" value="<?php echo $car_model ?>" required disabled>
+										<input class="form-control" type="text" name="car_model" value="<?php echo $car_model ?>" required readonly>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Number plate</span>
-										<input class="form-control" type="text" name="car_no" value="<?php echo $car_no ?>" required>
+										<input class="form-control" type="text" name="car_no" value="<?php echo $car_no ?>" required readonly>
 									</div>
 								</div>
 							</div>
@@ -131,7 +133,7 @@ if(!isset($_SESSION['login_customer'])){
 								
 								<div class="col-md-3">
 									<div class="form-btn">
-										<button class="submit-btn">Book Now</button>
+										<button class="submit-btn" name="submit">Book Now</button>
 									</div>
 								</div>
 							</div>
@@ -141,6 +143,6 @@ if(!isset($_SESSION['login_customer'])){
 			</div>
 		</div>
 	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>

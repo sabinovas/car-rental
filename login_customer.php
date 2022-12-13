@@ -28,10 +28,12 @@ $stmt -> store_result();
 if ($stmt->fetch())  //fetching the contents of the row
 {
 	$_SESSION['login_customer']=$customer_email; // Initializing Session
-	header("location: index.php"); // Redirecting To Other Page
+	header("location: index.php?success=1"); // Redirecting To Other Page
 } else {
-$error = "Email or Password is invalid";
+	$error = "Email or Password is invalid";
+	echo $error;
 }
+
 mysqli_close($conn); // Closing Connection
 }
 }

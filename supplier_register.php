@@ -15,6 +15,8 @@ if (!$success){
 	die("Couldnt enter data: ".$conn->error);
 }
 
+header("location: loginSupplier.php");
+
 $conn->close();
     
 ?>
